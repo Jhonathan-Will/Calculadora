@@ -1,5 +1,5 @@
 let valor1 = 0
-let valor2 =0
+let valor2 = 0
 let operador = " ";
 let total = 0
 let resgardo =" ";
@@ -7,19 +7,14 @@ let resgardo =" ";
 function igual(){
 
     if(valor2 == 0 ){
-        valor2 = parseFloat(document.getElementById("h3").innerText);
+        valor2 = parseInt(document.getElementById("h3").innerText);
         document.getElementById("h3").innerHTML = "";
+        console.log("valor 2 -- 0");
     }
-
-    if(operador !== resgardo){
-        valor2 = parseFloat(document.getElementById("h3").innerText);
-        resgardo = operador;
-        document.getElementById("h3").innerHTML = "";
-    }   
     
     if(operador == "+"){
         console.log(valor1, valor2, total)
-        total = parseInt(valor1 + valor2);
+        total = valor1 + valor2 ;
         valor1 = total
         document.getElementById("h3").innerHTML = `${total}`;
         console.log(valor1, valor2, total)
@@ -27,7 +22,7 @@ function igual(){
 
       if(operador == "-"){
         console.log(valor1, valor2, total)
-        total = parseInt(valor1 - valor2);
+        total = valor1 - valor2 ;
         console.log(total)
         valor1 = total
         document.getElementById("h3").innerHTML = `${total}`;
@@ -36,7 +31,7 @@ function igual(){
     
      if(operador == "*" ){
         console.log(valor1, valor2, total)
-        total = parseInt(valor1 * valor2);
+        total = valor1 * valor2 ;
         valor1 = total
         document.getElementById("h3").innerHTML = `${total}`;
         console.log(valor1, valor2, total)
@@ -44,7 +39,7 @@ function igual(){
    
      if(operador == "/"){
         console.log(valor1, valor2, total)
-        total = parseInt(valor1 / valor2);
+        total = valor1 / valor2 ;
         valor1 = total
         document.getElementById("h3").innerHTML = `${total}`;
         console.log(valor1, valor2, total)
@@ -56,21 +51,21 @@ function positivo(){
     operador = "+"
     if(valor1 <= 0){
        valor2 = parseInt(0);
-        operador = "+"
         resgardo = operador;
         console.log(operador)
         valor1 = parseInt(document.getElementById("h3").innerText);
         document.getElementById("h3").innerText = " ";  
         console.log("caso 1");
     }
-    else if(total != 0 || total <= 0){
-        resgardo = resgardo;
-        operador = "+"
+    else if(total != 0 || total <=0){
+        valor2 = 0
         console.log(resgardo)
         document.getElementById("h3").innerText = " ";
         console.log("caso 2");
     }
-    else if( operador !== resgardo){
+    
+    if( operador !== resgardo){
+        valor2 = 0;
         operador = "+"
         resgardo = operador;
         document.getElementById("h3").innerText = " ";  
@@ -80,69 +75,78 @@ function positivo(){
 
 
 function multiplicacao(){
+    operador = "*"
     if(valor1 <= 0){
        valor2 = parseInt(0);
-        operador = "*"
         resgardo = operador;
         console.log(operador)
         valor1 = parseInt(document.getElementById("h3").innerText);
         document.getElementById("h3").innerText = " ";  
     }
     else if(total >= 0 || total <= 0){
-        resgardo = resgardo;
-        operador = "*"
+        valor2 = 0
         console.log(resgardo)
         document.getElementById("h3").innerText = " ";
     }
-    else{
+
+    if( operador !== resgardo){
+        valor2 = 0;
         operador = "*"
-        resgardo = operador
+        resgardo = operador;
         document.getElementById("h3").innerText = " ";  
+        console.log("caso 3");
     }
+
 }
 
 function negativo(){
+    operador = "-"
     if(valor1 <= 0){
        valor2 = parseInt(0);
-        operador = "-"
         resgardo = operador;
         console.log(operador)
         valor1 = parseInt(document.getElementById("h3").innerText);
         document.getElementById("h3").innerText = " ";  
     }
     else if(total != 0 || total <= 0){ 
-        resgardo = resgardo;
-        operador = "-"
+        valor2 = 0
         console.log(resgardo)
         document.getElementById("h3").innerText = " ";
     }
-    else{
+
+    if( operador !== resgardo){
+        valor2 = 0;
         operador = "-"
         resgardo = operador;
         document.getElementById("h3").innerText = " ";  
+        console.log("caso 3");
     }
-}
+
+    }
 
 function divisao(){
+    operador = "/"
     if(valor1 <= 0){
         valor2 = parseInt(0);
-        operador = "/"
         resgardo=operador;
         console.log(operador)
         valor1 = parseInt(document.getElementById("h3").innerText);
         document.getElementById("h3").innerText = " ";  
     }
     else if(total != 0 || total <= 0){
-        resgardo = resgardo;
-        operador = "/"
+        valor2 = 0
         console.log(resgardo)
         document.getElementById("h3").innerText = " ";
     }
-    else{
+
+    if( operador !== resgardo){
+        valor2 = 0;
         operador = "/"
-        resgardo=operador;
+        resgardo = operador;
         document.getElementById("h3").innerText = " ";  
+        console.log("caso 3");
     }
+
 }
 
 function um(){
